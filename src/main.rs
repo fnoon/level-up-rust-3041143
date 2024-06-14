@@ -1,5 +1,23 @@
 fn median(a: Vec<f32>) -> Option<f32> {
-    todo!();
+    match a.len() {
+        0 => None, // empty vector
+        n => {
+            let mut a = a.clone(); // create a mutable vector for sorting
+            a.sort_by(|a, b| a.partial_cmp(b).unwrap());
+            let mid = n / 2; // find the middle index
+            match (n % 2) == 0 {
+                true => {
+                    // even number of elements
+                    let ave = (a[mid - 1] + a[mid]) / 2.0;
+                    Some(ave)
+                }
+                false => {
+                    // odd number of elements
+                    Some(a[mid])
+                }
+            }
+        }
+    }
 }
 
 fn main() {
