@@ -1,3 +1,4 @@
+/// Return the median of a sequence of `f32`'s.
 fn median(a: &mut [f32]) -> Option<f32> {
     match a.len() {
         0 => None, // empty vector
